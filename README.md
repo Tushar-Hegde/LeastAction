@@ -1,8 +1,8 @@
 # Least Action & Path Integrals: Independent Summer Study at IISc
 
-[github.com/Tushar-Hegde/LeastAction](https://github.com/Tushar-Hegde/LeastAction/LeastAction.ipynb)
-[Colab notebook](https://colab.research.google.com/drive/1ycYvf4DuS0ek8jvvazjp-EafQA8qo7Pg?usp=sharing)
-[Review Presentation](https://canva.link/jcv0xfedcyo2em2)
+[github.com/Tushar-Hegde/LeastAction](https://github.com/Tushar-Hegde/LeastAction/LeastAction.ipynb)  
+[Colab notebook](https://colab.research.google.com/drive/1ycYvf4DuS0ek8jvvazjp-EafQA8qo7Pg?usp=sharing)  
+[Review Presentation](https://canva.link/jcv0xfedcyo2em2)  
 ---
 
 ## 1. Summary
