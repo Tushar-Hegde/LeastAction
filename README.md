@@ -1,4 +1,4 @@
-# Least Action & Path Integrals: Summer Internship at IISc
+# Least Action & Path Integrals: Independent Summer Study at IISc
 
 **Tushar Hegde** · B.Tech Engineering Physics, IIT Dharwad
 **Type:** Unofficial summer internship (self-directed study with review presentation) at IISc
