@@ -1,22 +1,23 @@
 # Least Action & Path Integrals: Independent Summer Study at IISc
 
-**Tushar Hegde** · B.Tech Engineering Physics, IIT Dharwad
-**Type:** Unofficial summer internship (self-directed study with review presentation) at IISc
-**Code:** [github.com/Tushar-Hegde/LeastAction](https://github.com/Tushar-Hegde/LeastAction) · [Colab notebook](https://colab.research.google.com/drive/1ycYvf4DuS0ek8jvvazjp-EafQA8qo7Pg?usp=sharing)
-
+[github.com/Tushar-Hegde/LeastAction](https://github.com/Tushar-Hegde/LeastAction/LeastAction.ipynb)
+[Colab notebook](https://colab.research.google.com/drive/1ycYvf4DuS0ek8jvvazjp-EafQA8qo7Pg?usp=sharing)
+[Review Presentation](https://canva.link/jcv0xfedcyo2em2)
 ---
 
 ## 1. Summary
 
 I spent the summer learning the path-integral formulation of quantum mechanics and the classical principle of least action, and pairing that theory with a small computational experiment: using gradient descent to find the trajectory of a particle by minimizing (and trying to maximize) the discretized action.
 
-**Scope, stated plainly:** the optimization code was **not written from scratch**. I started from an existing open-source PyTorch implementation (Sam Greydanus's tutorial, linked in the references) and modified it to run my own experiments. Several of the ideas I tried turned out to already exist in the literature, and several didn't work. The main outcome was learning: the physics, the tooling, and a first real experience of how research goes.
+The optimization code was from an existing open-source PyTorch implementation (Sam Greydanus's tutorial, linked in the references) and modified it to run my own experiments.
+
+During my study, several of the ideas I tried turned out to already exist in the literature, and several didn't work. However during the course of this I learnt the physics, tools and had some experience with how research is.
 
 ---
 
 ## 2. Physics background I studied
 
-Worked through mainly from Feynman & Hibbs and Sakurai & Napolitano, plus three arXiv papers (see References).
+Worked through mainly from Feynman & Hibbs and Sakurai & Napolitano + three arXiv papers (see References).
 
 **Foundations**
 - Probability distributions in quantum mechanics
@@ -40,7 +41,7 @@ Worked through mainly from Feynman & Hibbs and Sakurai & Napolitano, plus three 
 **Computational tools picked up along the way**
 - Python scientific stack: NumPy, SciPy, Awkward Array, and other libraries
 - PyTorch and Keras
-- ML concepts: linear regression, a little on neural networks, and transformers
+- ML concepts: linear regression, a little on neural networks and transformers
 
 ---
 
@@ -56,7 +57,7 @@ Discretize time into N steps, treat the particle's position at each interior ste
 ### What I did
 I took the existing PyTorch implementation and modified it to experiment:
 
-- **Changed the physical system** by swapping in different Lagrangians: a free particle, a harmonic oscillator, and a more specific potential, among others.
+- **Changed the physical system** by swapping in different Lagrangians: a free particle, a harmonic oscillator, and a more specific potential (hoping to get multistable states) , among others.
 - **Tuned the optimizer.** I varied the number of iterations and the step size, and studied the balance between them. In my runs, small steps could stall convergence, while large steps gave inaccurate or noisy final paths (the review slides include plots of both well-converged and visibly noisy trajectories). I tuned largely by trial and error.
 - **Pushed past minimization.** I flipped the sign of the objective to extremize the action to a maximum or an inflection point, not just a minimum.
 
@@ -68,11 +69,11 @@ Ideas I came up with and worked through, then learned had been done already:
 - Using a single Lagrangian for a system of multiple particles
 - A few smaller things along similar lines
 
-These were still worth doing, since re-deriving them independently was a good check that I understood the material, but I don't claim them as novel.
+These were still worth doing, since re-deriving them independently was a good check that I understood the material.
 
 ### What didn't work
-- **Arrival probability over a time window:** trying to compute the probability that a particle arrives at point *x* at *any* time within a window.
-- **Maximizing the action to get a stable path:** gradient *ascent* on the action does not converge to something physically meaningful, because the true trajectory is a stationary point of the action rather than a maximum in general.
+- **Arrival probability over a time window:** trying to compute the probability that a particle arrives at point *x* at any time within a window. (Was not able to normalise over time)
+- **Maximizing the action to get a stable path:** gradient ascent on the action does not converge to something physically meaningful. I got my particly to oscillate to infinity and back basically.
 - **A "maximum slope" criterion:** instead of extremizing, I tried using a maximum-slope condition to find regions where the action changes very little. This didn't yield useful paths.
 - Some other attempts I no longer remember in detail.
 
